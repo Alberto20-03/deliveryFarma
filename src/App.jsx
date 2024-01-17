@@ -5,8 +5,8 @@ import { Login } from './components/login/login';
 import { Carrito } from './components/carrito/carrito';
 import { CardMedicines } from './components/card-medicines/card-medicines';
 import CartProvider from './components/context/cart-context';
-import { Home } from './components/Home/home';
-import Dialogo from './components/bocadillo-dialogo/bocadillo-dialogo';
+import { Home } from '@/components/Home/home';
+import Dialogo from '@/components/bocadillo-dialogo/bocadillo-dialogo';
 
 function App() {
   return (
