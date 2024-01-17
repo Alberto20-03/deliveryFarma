@@ -1,1 +1,1 @@
-export const URL_APP = 'http://localhost:3300'
+export const URL_APP = 'https://delivery-farma.vercel.app/'
