@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
+import { URL_APP } from '/src/constantes';
 
 export function Data() {
   const [medicamentos, setMedicamentos] = useState(undefined);
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch('http://localhost:3100/productos', {
+      const res = await fetch(`${URL_APP}/productos`, {
         method: 'GET',
         mode: 'cors',
         headers: {

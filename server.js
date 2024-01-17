@@ -24,20 +24,19 @@ async function chatGPT(message) {
 }
 
 const conexion = mysql.createConnection({
-  host: '127.0.0.1',
-  user: 'root',
-  password: 'Alberton932',
-  database: 'DeliveryFarma',
-  port: 3000,
+  host: process.env.URL_BD,
+  user: process.env.USUARIO_BD,
+  password: process.env.PWD_BD,
+  database: process.env.DB,
+  port: process.env.PUERTO_BD,
 });
+const PORT = process.env.PUERTO_BD;
 
 conexion.connect((err) => {
   if (err) {
     console.error('Error de conexión a MySQL:', err);
     throw err;
   }
-
-  const PORT = 3100;
 
   http
     .createServer((req, res) => {
@@ -261,19 +260,17 @@ conexion.connect((err) => {
           }
           respuesta();
         });
-      }
-      else if (req.method == 'POST' && req.url == '/pago') {
+      } else if (req.method == 'POST' && req.url == '/pago') {
         let body = '';
-      req.on('data', (chunk) => {
-        body += chunk.toString();
-      });
+        req.on('data', (chunk) => {
+          body += chunk.toString();
+        });
 
-      req.on('end', () => {
-        const { token, amount } = querystring.parse(body);
-        pasarelaPago(res, token, amount);
-      });
-      }
-      else {
+        req.on('end', () => {
+          const { token, amount } = querystring.parse(body);
+          pasarelaPago(res, token, amount);
+        });
+      } else {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('Not Found');
       }

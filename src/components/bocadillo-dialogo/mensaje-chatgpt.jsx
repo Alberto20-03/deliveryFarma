@@ -1,5 +1,7 @@
+import { URL_APP } from '../../constantes';
+
 export async function peticionMensajeChatGPT(mensaje) {
-  const peticion = await fetch('http://localhost:3100/dialogo-chat', {
+  const peticion = await fetch(`${URL_APP}/dialogo-chat`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -1,6 +1,8 @@
+import { URL_APP } from "../../../../../constantes";
+
 export async function PedidoBBDD (usuario) {
 
-    const response = await fetch('http://localhost:3100/historial-pedidos', {
+    const response = await fetch(`${URL_APP}/historial-pedidos`, {
         method: 'POST', 
         headers: {
             'Content-Type': 'application/json',

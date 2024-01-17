@@ -1,3 +1,5 @@
+import { URL_APP } from '../../../../constantes';
+
 export function IniciarSesionBBDD(
   usuario,
   contraseña,
@@ -23,7 +25,7 @@ export function IniciarSesionBBDD(
   } else if (!REGEXPContraseña.test(contraseña)) {
     setUsuarioNoExiste(true);
   } else {
-    fetch('http://localhost:3100/iniciar-sesion', {
+    fetch(`${URL_APP}/iniciar-sesion`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -1,3 +1,5 @@
+import { URL_APP } from '../../../../constantes';
+
 export function CrearCuentaBBDD(
   e,
   nombre,
@@ -31,7 +33,7 @@ export function CrearCuentaBBDD(
       contraseña: contraseña,
     };
 
-    fetch('http://localhost:3100/crear-usuario', {
+    fetch(`${URL_APP}/crear-usuario`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
