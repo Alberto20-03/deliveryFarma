@@ -28,7 +28,7 @@ const conexion = mysql.createConnection({
   user: process.env.USUARIO_BD,
   password: process.env.PWD_BD,
   database: process.env.DB,
-  port: process.env.PORT || process.env.PUERTO_BD,
+  port: process.env.PUERTO_BD,
 });
 const PORT = process.env.PORT || process.env.PUERTO_BD;
 
