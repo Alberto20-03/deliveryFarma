@@ -45,11 +45,7 @@ conexion.connect((err) => {
       res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
       if (req.method === 'OPTIONS') {
-        res.writeHead(200, {
-          'Access-Control-Allow-Origin': 'https://delivery-farma.vercel.app',
-          'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type',
-        });
+        res.writeHead(200);
         res.end();
         return;
       }
