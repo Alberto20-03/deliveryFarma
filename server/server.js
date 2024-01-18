@@ -39,15 +39,14 @@ conexion.connect((err) => {
     throw err;
   }
 
-
   http
     .createServer((req, res) => {
-      // res.setHeader(
-      //   'Access-Control-Allow-Origin',
-      //   'https://delivery-farma.vercel.app'
-      // );
-      // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-      // res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+      res.setHeader(
+        'Access-Control-Allow-Origin',
+        'https://delivery-farma.vercel.app'
+      );
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
       cors()(req, res);
 
       if (req.method === 'OPTIONS') {
@@ -62,7 +61,11 @@ conexion.connect((err) => {
             res.writeHead(500, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ error: 'Error al obtener datos' }));
           } else {
-            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.writeHead(200, {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin':
+                'https://delivery-farma.vercel.app',
+            });
             res.end(JSON.stringify({ productos: results }));
           }
         });
