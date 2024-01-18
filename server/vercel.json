@@ -12,7 +12,9 @@
       "dest": "/productos",
       "methods": ["GET", "OPTIONS"],
       "headers": {
-        "Access-Control-Allow-Origin": "https://delivery-farma.vercel.app"
+        "Access-Control-Allow-Origin": "https://delivery-farma.vercel.app",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type"
       }
     },
     { "src": "/crear-usuario", "dest": "/" },
