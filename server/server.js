@@ -25,7 +25,6 @@ async function chatGPT(message) {
 
 const conexion = mysql.createConnection({
   host: process.env.URL_BD,
-  user: 'user',
   password: process.env.PWD_BD,
   database: process.env.DB,
   port: 3000,
