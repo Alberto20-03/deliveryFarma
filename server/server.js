@@ -39,7 +39,6 @@ conexion.connect((err) => {
     throw err;
   }
 
-  const handleCors = cors()
 
   http
     .createServer((req, res) => {
@@ -49,7 +48,7 @@ conexion.connect((err) => {
       // );
       // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
       // res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-      handleCors(req, res);
+      cors()(req, res);
 
       if (req.method === 'OPTIONS') {
         res.writeHead(200);
