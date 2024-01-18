@@ -7,8 +7,14 @@
     }
   ],
   "routes": [
-    { "src": "/productos", "dest": "/", "methods": ["GET", "OPTIONS"],
-    "allow": "https://delivery-farma.vercel.app" },
+    {
+      "src": "/productos",
+      "dest": "/productos",
+      "methods": ["GET", "OPTIONS"],
+      "headers": {
+        "Access-Control-Allow-Origin": "https://delivery-farma.vercel.app"
+      }
+    },
     { "src": "/crear-usuario", "dest": "/" },
     { "src": "/iniciar-sesion", "dest": "/" },
     { "src": "/historial-pedidos", "dest": "/" },
