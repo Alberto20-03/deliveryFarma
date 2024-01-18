@@ -8,7 +8,7 @@
   ],
   "routes": [
     { "src": "/productos", "dest": "/", "methods": ["GET", "OPTIONS"],
-    "allow": ["https://delivery-farma.vercel.app"] },
+    "allow": "https://delivery-farma.vercel.app" },
     { "src": "/crear-usuario", "dest": "/" },
     { "src": "/iniciar-sesion", "dest": "/" },
     { "src": "/historial-pedidos", "dest": "/" },
