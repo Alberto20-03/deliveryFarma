@@ -3,6 +3,7 @@ import http from 'http';
 import Stripe from 'stripe';
 import dotenv from 'dotenv';
 import OpenAI from 'openai';
+import cors from 'cors';
 
 dotenv.config();
 const openai = new OpenAI({ apiKey: process.env.API_KEY_CHATGPT });
@@ -38,21 +39,16 @@ conexion.connect((err) => {
     throw err;
   }
 
-  const handleCors = (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://delivery-farma.vercel.app/');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  };
+  const handleCors = cors()
 
   http
     .createServer((req, res) => {
-      res.setHeader(
-        'Access-Control-Allow-Origin',
-        'https://delivery-farma.vercel.app'
-      );
-      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-      res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+      // res.setHeader(
+      //   'Access-Control-Allow-Origin',
+      //   'https://delivery-farma.vercel.app'
+      // );
+      // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+      // res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
       handleCors(req, res);
 
       if (req.method === 'OPTIONS') {
