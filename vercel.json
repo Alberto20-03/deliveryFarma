@@ -2,8 +2,16 @@
   "version": 2,
   "builds": [
     {
-      "src": "server.js", 
+      "src": "server.js",
       "use": "@vercel/node"
     }
+  ],
+  "routes": [
+    { "src": "/productos" },
+    { "src": "/crear-usuario" },
+    { "src": "/iniciar-sesion" },
+    { "src": "/historial-pedidos" },
+    { "src": "/dialogo-chat" },
+    { "src": "/pago" }
   ]
 }
