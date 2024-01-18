@@ -3,7 +3,6 @@ import http from 'http';
 import Stripe from 'stripe';
 import dotenv from 'dotenv';
 import OpenAI from 'openai';
-import cors from 'cors';
 
 dotenv.config();
 const openai = new OpenAI({ apiKey: process.env.API_KEY_CHATGPT });
@@ -29,7 +28,7 @@ const conexion = mysql.createConnection({
   user: process.env.USUARIO_BD,
   password: process.env.PWD_BD,
   database: process.env.DB,
-  port: process.env.PUERTO_BD,
+  port: 3000 || process.env.PUERTO_BD,
 });
 const PORT = process.env.PORT || process.env.PUERTO_BD;
 
@@ -47,7 +46,6 @@ conexion.connect((err) => {
       );
       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
       res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-      cors()(req, res);
 
       if (req.method === 'OPTIONS') {
         res.writeHead(200);
@@ -67,6 +65,7 @@ conexion.connect((err) => {
                 'https://delivery-farma.vercel.app',
             });
             res.end(JSON.stringify({ productos: results }));
+            console.log(results)
           }
         });
       } else if (req.method == 'POST' && req.url == '/crear-usuario') {
