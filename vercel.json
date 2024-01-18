@@ -7,11 +7,11 @@
     }
   ],
   "routes": [
-    { "src": "/productos" },
-    { "src": "/crear-usuario" },
-    { "src": "/iniciar-sesion" },
-    { "src": "/historial-pedidos" },
-    { "src": "/dialogo-chat" },
-    { "src": "/pago" }
+    { "src": "/productos", "dest": "/"},
+    { "src": "/crear-usuario", "dest": "/" },
+    { "src": "/iniciar-sesion", "dest": "/" },
+    { "src": "/historial-pedidos", "dest": "/" },
+    { "src": "/dialogo-chat", "dest": "/" },
+    { "src": "/pago", "dest": "/" }
   ]
 }
