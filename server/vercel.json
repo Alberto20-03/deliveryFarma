@@ -8,7 +8,7 @@
   ],
   "routes": [
     {
-      "src": "/productos",
+      "src": "/(.*)",
       "dest": "/productos",
       "methods": ["GET", "OPTIONS"],
       "headers": {
