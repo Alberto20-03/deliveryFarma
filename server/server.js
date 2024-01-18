@@ -39,19 +39,22 @@ conexion.connect((err) => {
   }
 
   const handleCors = (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', 'https://delivery-farma.vercel.app');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   };
 
   http
     .createServer((req, res) => {
-      res.setHeader('Access-Control-Allow-Origin', 'https://delivery-farma.vercel.app');
+      res.setHeader(
+        'Access-Control-Allow-Origin',
+        'https://delivery-farma.vercel.app'
+      );
       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
       res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+      handleCors(req, res);
 
       if (req.method === 'OPTIONS') {
-        handleCors(req, res);
         res.writeHead(200);
         res.end();
         return;
