@@ -7,6 +7,7 @@ export function Data() {
     const fetchData = async () => {
       const res = await fetch(`${URL_APP}/productos`, {
         method: 'GET',
+        mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
           accept: 'application/json',
