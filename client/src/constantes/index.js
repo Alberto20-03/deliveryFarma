@@ -1,1 +1,1 @@
-export const URL_APP = 'https://sdelivery-farma.onrender.com'
+export const URL_APP= 'https://sdelivery-farma.onrender.com'
