@@ -1,0 +1,157 @@
+#root {
+  max-width: 100vw;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+@media (max-width: 599px) {
+  .header_Contenedor {
+    height: 7vh;
+  }
+  .header_Izquierda > img {
+    height: 65px;
+    width: 65px;
+    margin-top: 4vh;
+    margin-left: 10px;
+  }
+  .main_cuerpo {
+    margin-top: 7vh;
+  }
+  .container {
+    grid-template-columns: repeat(auto-fill, minmax(25vw, 3fr));
+    gap: 15px;
+    padding: 20px 20px 20px 5px;
+    margin: 0 20px 0 20px;
+  }
+  .body {
+    margin-top: 50px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1050px) {
+  .header_Contenedor {
+    height: 6vh;
+  }
+  .header_Centro {
+    gap: 5%;
+  }
+  .header_Izquierda > img {
+    height: 140px;
+    width: 140px;
+    margin-top: 8vh;
+    margin-left: 20px;
+  }
+  .header_Derecha {
+    gap: 7px;
+    margin-right: 5px;
+  }
+  .header_Derecha > .iconos {
+    height: 30px;
+    width: 30px;
+  }
+  .main_cuerpo {
+    margin-top: 6vh;
+  }
+  .container {
+    grid-template-columns: repeat(auto-fill, minmax(20vw, 3fr));
+    gap: 10px;
+    padding: 20px 20px 20px 5px;
+    margin: 0 20px 0 20px;
+  }
+  .body {
+    margin-top: 100px;
+  }
+}
+
+@media (min-width: 1051px) {
+  .header_Contenedor {
+    height: 7vh;
+  }
+  .header_Centro {
+    gap: 5%;
+  }
+  .header_Izquierda > img {
+    margin-top: 17vh;
+    height: 150px;
+    width: 150px;
+    margin-left: 60px;
+  }
+  .header_Derecha {
+    gap: 7px;
+    margin-right: 5px;
+  }
+  .header_Derecha > .iconos {
+    height: 30px;
+    width: 30px;
+  }
+  .main_cuerpo {
+    margin-top: 10vh;
+  }
+  .container {
+    grid-template-columns: repeat(auto-fill, minmax(15vw, 3fr));
+    gap: 20px;
+    padding: 30px 20px 20px 5px;
+    margin: 20px 20px 0 20px;
+  }
+  .body {
+    margin-top: 130px;
+  }
+}
+
+.App {
+  min-width: 100vw;
+}
+
+.header_Contenedor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 2%;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  min-width: 100%;
+  z-index: 1000;
+  margin-right: 5%;
+}
+
+.header_Izquierda {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.header_Centro {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.main_cuerpo {
+  overflow-x: hidden;
+}
+
+.header_Derecha {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header_Derecha .iconos {
+  cursor: pointer;
+}
+
+.body {
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  display: grid;
+  width: 100%;
+  max-width: 100%;
+}

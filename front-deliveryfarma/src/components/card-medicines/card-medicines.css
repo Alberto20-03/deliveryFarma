@@ -1,0 +1,200 @@
+@media (max-width: 599px) {
+  .card {
+    height: 30vh;
+    min-width: 25vw;
+  }
+  .precioyCart {
+    top: 30px;
+  }
+  .precioyCart {
+    margin-top: -10px;
+  }
+  .fotoMedicamento {
+    height: 70px;
+    width: 90px;
+  }
+  .addCart {
+    width: 80px;
+    padding: 4px 5px 4px 5px;
+    line-height: 0.9;
+  }
+  .detalleMedicamento {
+    width: 90%;
+  }
+  .detalleGeneral {
+    flex-direction: column;
+  }
+  .detalleGeneral-img {
+    margin-bottom: -30px;
+  }
+  .info {
+    width: fit-content;
+    padding: 7px 15px 7px 15px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1050px) {
+  .card {
+    height: 22vh;
+    width: 20vw;
+  }
+  .precioyCart {
+    margin-top: 10px;
+  }
+  .nombre {
+    margin-top: 10px;
+  }
+  .detalle {
+    padding: 15px 0 10px 0;
+  }
+  .fotoMedicamento {
+    height: 110px;
+    width: 145px;
+  }
+  .addCart {
+    margin-top: 5px;
+    width: 130px;
+    padding: 7px 10px 7px 10px;
+    line-height: 0.9;
+  }
+  .detalleMedicamento {
+    width: 70%;
+  }
+  .info {
+    width: fit-content;
+    padding: 7px 15px 7px 15px;
+  }
+}
+
+@media (min-width: 1051px) {
+  .card {
+    height: 37vh;
+    width: 14vw;
+  }
+  .nombre {
+    margin-top: 10px;
+  }
+  .precioyCart {
+    margin-top: 10px;
+  }
+  .detalle {
+    padding: 15px 0 10px 0;
+  }
+  .fotoMedicamento {
+    height: 110px;
+    width: 145px;
+  }
+  .addCart {
+    margin-top: 5px;
+    width: 130px;
+    padding: 5px 10px 5px 10px;
+  }
+  .detalleMedicamento {
+    width: 45%;
+  }
+  .info {
+    width: fit-content;
+    padding: 7px 15px 7px 15px;
+  }
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #e5e5e5;
+  box-shadow: 2px 2px 5px #2c454242;
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
+
+.imagenCard {
+  cursor: pointer;
+}
+
+.nombre {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: small;
+  font-weight: bold;
+  width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.laboratorio {
+  font-size: 11px;
+  color: #666;
+  width: 75%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 4px;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.addCart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--main-color);
+  border: 1px solid black;
+  border-radius: 5px;
+
+  font-weight: 600;
+}
+
+.precio {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2c4542;
+  margin: 3px;
+}
+
+
+
+.containerDetallesMedicamento {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(128, 128, 128, 0.481);
+  z-index: 98;
+}
+
+.detalleMedicamento {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding: 25px 40px 25px 40px;
+  /* width: 37vw; */
+  background-color: rgb(231, 231, 231);
+  z-index: 99;
+  box-shadow: 0px 3px 10px 3px #1d2d2b94;
+  gap: 25px;
+}
+
+.detalleGeneral {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.detallesInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.listaDetalles {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
