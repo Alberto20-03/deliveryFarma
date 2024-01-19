@@ -1,12 +1,12 @@
-import { BurguerMenu } from './client/src/components/burguermenu/burguer-menu';
-import Searcher from './client/src/components/Searcher';
+import { BurguerMenu } from './components/burguermenu/burguer-menu';
+import Searcher from './components/Searcher';
 import './App.css';
-import { Login } from './client/src/components/login/login';
-import { Carrito } from './client/src/components/carrito/carrito';
-import { CardMedicines } from './client/src/components/card-medicines/card-medicines';
-import CartProvider from './client/src/components/context/cart-context';
-import { Home } from './client/src/components/home/home';
-import Dialogo from './client/src/components/bocadillo-dialogo/bocadillo-dialogo';
+import { Login } from './components/login/login';
+import { Carrito } from './components/carrito/carrito';
+import { CardMedicines } from './components/card-medicines/card-medicines';
+import CartProvider from './components/context/cart-context';
+import { Home } from './components/home/home';
+import Dialogo from './components/bocadillo-dialogo/bocadillo-dialogo';
 
 function App() {
   return (

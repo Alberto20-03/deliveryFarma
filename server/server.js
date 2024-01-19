@@ -32,18 +32,6 @@ const conexion = mysql.createConnection({
 });
 const PORT = process.env.PORT || process.env.PUERTO_BD;
 
-function handleCors(req, res) {
-  res.setHeader(
-    'Access-Control-Allow-Origin',
-    'https://delivery-farma.vercel.app'
-  );
-  res.setHeader(
-    'Access-Control-Allow-Methods',
-    'GET, POST, PUT, DELETE, OPTIONS'
-  );
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-}
-
 conexion.connect((err) => {
   if (err) {
     console.error('Error de conexión a MySQL:', err);
@@ -52,7 +40,12 @@ conexion.connect((err) => {
 
   http
     .createServer((req, res) => {
-      handleCors(req, res);
+      res.setHeader(
+        'Access-Control-Allow-Origin',
+        'https://delivery-farma.vercel.app'
+      );
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
       if (req.method === 'OPTIONS') {
         res.writeHead(200);
@@ -61,8 +54,6 @@ conexion.connect((err) => {
       }
 
       if (req.method == 'GET' && req.url == '/productos') {
-        res.setHeader('Access-Control-Allow-Origin', '*');
-
         conexion.query('SELECT * FROM productos', (error, results) => {
           if (error) {
             res.writeHead(500, { 'Content-Type': 'application/json' });
@@ -74,7 +65,7 @@ conexion.connect((err) => {
                 'https://delivery-farma.vercel.app',
             });
             res.end(JSON.stringify({ productos: results }));
-            console.log(results);
+            console.log(results)
           }
         });
       } else if (req.method == 'POST' && req.url == '/crear-usuario') {
