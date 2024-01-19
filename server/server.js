@@ -32,6 +32,12 @@ const conexion = mysql.createConnection({
 });
 const PORT = process.env.PORT || process.env.PUERTO_BD;
 
+function handleCors(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', 'https://delivery-farma.vercel.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+}
+
 conexion.connect((err) => {
   if (err) {
     console.error('Error de conexión a MySQL:', err);
@@ -40,12 +46,7 @@ conexion.connect((err) => {
 
   http
     .createServer((req, res) => {
-      res.setHeader(
-        'Access-Control-Allow-Origin',
-        '*'
-      );
-      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-      res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+      handleCors(req, res);
 
       if (req.method === 'OPTIONS') {
         res.writeHead(200);
