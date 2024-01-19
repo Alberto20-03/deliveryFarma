@@ -54,6 +54,14 @@ conexion.connect((err) => {
       }
 
       if (req.method == 'GET' && req.url == '/productos') {
+
+        res.setHeader(
+          'Access-Control-Allow-Origin',
+          '*'
+        );
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
         conexion.query('SELECT * FROM productos', (error, results) => {
           if (error) {
             res.writeHead(500, { 'Content-Type': 'application/json' });
