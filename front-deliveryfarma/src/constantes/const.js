@@ -1,1 +1,1 @@
-export const URL_APP = 'http://localhost:5173/'
+export const URL_APP = 'https://sdelivery-farma.onrender.com'
