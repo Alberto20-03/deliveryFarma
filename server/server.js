@@ -40,14 +40,12 @@ conexion.connect((err) => {
 
   http
     .createServer((req, res) => {
-      res.setHeader(
-        'Access-Control-Allow-Origin',
-        'https://delivery-farma.vercel.app'
-      );
-      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-      res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Methods', '*');
+      res.setHeader('Access-Control-Allow-Headers', '*');
 
       if (req.method === 'OPTIONS') {
+        res.setHeader('Access-Control-Allow-Origin', '*');
         res.writeHead(200);
         res.end();
         return;
@@ -61,11 +59,10 @@ conexion.connect((err) => {
           } else {
             res.writeHead(200, {
               'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin':
-                'https://delivery-farma.vercel.app',
+              'Access-Control-Allow-Origin': '*',
             });
             res.end(JSON.stringify({ productos: results }));
-            console.log(results)
+            console.log(results);
           }
         });
       } else if (req.method == 'POST' && req.url == '/crear-usuario') {
