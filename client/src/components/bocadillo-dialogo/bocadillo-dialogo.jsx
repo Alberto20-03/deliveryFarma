@@ -3,21 +3,27 @@ import './bocadillo-dialogo.css';
 import { CartContext } from '../context/cart-context';
 import { peticionMensajeChatGPT } from './mensaje-chatgpt';
 
+// componente que renderiza el chatbot de la aplicación
 export default function Dialogo() {
-  const [verDialogo, setVerDialogo] = useState(false); //Visualizar dialogo
-  const [mensaje, setMensaje] = useState(''); //Mensaje del dialogo
-  const [historial, setHistorial] = useState([]); //Historial de mensajes
-  const [enviandoRespuesta, setEnviandoRespuesta] = useState(false); //Mientras se esta procesando la respuesta de chatGPT será true
+  const [verDialogo, setVerDialogo] = useState(false); // gestiona si se debe visualizar el dialogo
+  const [mensaje, setMensaje] = useState(''); // almacena el mensaje para añadirlo al dialogo
+  const [historial, setHistorial] = useState([]); // Almacena el historial de mensajes
+  const [enviandoRespuesta, setEnviandoRespuesta] = useState(false); // mientras se esta procesando la respuesta de chatGPT será true
+
   const { nombre, sesionIniciada } = useContext(CartContext);
 
+  // gestiona los mensajes del usuario y de la API
   async function submitMensajeUsuario(e) {
     e.preventDefault();
     if (mensaje.length > 1) {
+      // añade el mensaje del usuario al historial
       setHistorial((prevHistorial) => [
         ...prevHistorial,
         { mensaje: mensaje, autor: 'usuario' },
       ]);
       setEnviandoRespuesta(true);
+
+      // envía el mensaje del usuario a la API de ChatGPT para obtener una respuesta
       const respuesta = await peticionMensajeChatGPT(mensaje);
       setEnviandoRespuesta(false);
       setHistorial((prevHistorial) => [
@@ -33,6 +39,7 @@ export default function Dialogo() {
       <div className="modal-dialogo" onClick={(e) => e.stopPropagation()}>
         <h3>¿Necesitas ayuda?</h3>
         <main className="container-dialogo">
+          {/* para utilizar esta funcionalidad se debe haber iniciad sesión previamente */}
           {sesionIniciada ? (
             <>
               <DialogoChat
@@ -42,6 +49,7 @@ export default function Dialogo() {
               />
 
               <div className="container-entrada-usuario">
+                {/* renderizado condicional para indicar al usuario que se está procesando la respuesta  */}
                 {enviandoRespuesta ? (
                   <textarea
                     onChange={(e) => setMensaje(e.target.value)}
@@ -121,10 +129,12 @@ export default function Dialogo() {
   );
 }
 
+// componente qie renderiza el chat
 function DialogoChat({ historial, nombre, enviandoRespuesta }) {
   const dialogoRef = useRef(null);
 
   useEffect(() => {
+    // mantiene el scroll del chat siempre en la parte de abajo
     if (dialogoRef.current) {
       dialogoRef.current.scrollTop = dialogoRef.current.scrollHeight;
     }

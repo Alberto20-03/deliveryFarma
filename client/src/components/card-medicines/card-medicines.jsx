@@ -3,11 +3,16 @@ import { CartContext } from '../context/cart-context';
 import './card-medicines.css';
 import { useContext, useState } from 'react';
 
+//componente que renderiza las tarjetas de los medicamentos
 export function CardMedicines() {
+  // obtiene los productos de la base de datos
   const medicinas = Data();
+
   const { search, AñadirACarrito } = useContext(CartContext);
 
   return (
+    // renderiza el componente Card en el caso de que se hayan traído
+    // correctamente los productos de la base de datos
     <>
       {medicinas && medicinas.productos ? (
         medicinas.productos
@@ -32,6 +37,7 @@ export function CardMedicines() {
   );
 }
 
+// le da el formato adecuado al nombre del producto
 function nombreMedicamento(nombre) {
   const regex = /^(.*?)\s(\d+\s?MG).*$/i;
 
@@ -61,12 +67,15 @@ function nombreMedicamento(nombre) {
 }
 
 const Card = ({ result, AñadirACarrito }) => {
+  // maneja si se ha clicado en el producto para mostrar sus detalles
   const [detalleMedicina, setDetalleMedicina] = useState(false);
 
+  // añade el producto al carrito
   function clickImg(e, result) {
     e.preventDefault();
     AñadirACarrito(result);
   }
+
   return (
     <article className="card">
       {detalleMedicina && (
@@ -93,6 +102,7 @@ const Card = ({ result, AñadirACarrito }) => {
   );
 };
 
+// componente que renderiza los detalles del medicamento
 function DetallesMedicamento({ result, setDetalleMedicina, clickImg }) {
   console.log(result);
   return (

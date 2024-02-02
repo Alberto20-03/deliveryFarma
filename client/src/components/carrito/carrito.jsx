@@ -4,11 +4,13 @@ import { CartContext } from '../context/cart-context';
 import { PagoStripe } from '../pagos-stripe/pagos';
 
 export function Carrito() {
-  const [verCarrito, setVerCarrito] = useState(false);
-  const [verPagos, setVerPagos] = useState(false);
-  const { cart, EliminarDeCarrito, user, setLogin } = useContext(CartContext);
-  const [cerrarCarrito, setCerrarCarrito] = useState(false);
+  const [verCarrito, setVerCarrito] = useState(false); // gestiona el clic sobre el icono del carrito para mostrarlo
+  const [verPagos, setVerPagos] = useState(false); // gestiona cuándo se debe mostrar el formulario para pagar
+  const [cerrarCarrito, setCerrarCarrito] = useState(false); // gestiona cuando se debe cerrar el carrito
 
+  const { cart, EliminarDeCarrito, user, setLogin } = useContext(CartContext);
+
+  // al clicar en el icono actualiza los estados
   function clickCarrito(e) {
     e.preventDefault();
     setVerCarrito(true);
@@ -26,6 +28,7 @@ export function Carrito() {
         alt="Carrito"
         src="carrito.png"></img>
 
+      {/* renderizado condicional para mostrar el carrito */}
       {verCarrito && (
         <div
           className="cerrar_carrito"
@@ -34,6 +37,7 @@ export function Carrito() {
             setCerrarCarrito(false);
             setVerCarrito(false);
           }}>
+          {/* renderizado condicional para cerrar o abrir el carrito */}
           {cerrarCarrito && (
             <VerCarrito
               EliminarDeCarrito={EliminarDeCarrito}
@@ -51,6 +55,7 @@ export function Carrito() {
   );
 }
 
+// componente encargado de renderizar el carrito
 function VerCarrito({
   cart,
   EliminarDeCarrito,
@@ -135,7 +140,8 @@ function VerCarrito({
   );
 }
 
-function clickComprar(user, setVerCarrito, setLogin, setVerPagos) {
+// maneja el clic para mostrar el formulario de pago
+function clickComprar(user, setLogin, setVerPagos) {
   if (user === '') {
     return setLogin(true);
   } else {
@@ -143,6 +149,7 @@ function clickComprar(user, setVerCarrito, setLogin, setVerPagos) {
   }
 }
 
+// asegurá que el precio mantenga el formato numérico correcto
 function precioSubtotal(cart) {
   let precioSubT = 0;
   cart && cart.map((prod) => (precioSubT += prod.precio * prod.quantity));

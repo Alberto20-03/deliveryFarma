@@ -21,11 +21,11 @@ export function Login() {
   } = useContext(CartContext);
 
   const [cerrarLogin, setCerrarLogin] = useState(false);
-  const [iniciarSesion, setIniciarSesion] = useState(true); //Menu para iniciarSesion o para crearCuenta
-  const [apellido, setApellido] = useState(''); //Apellido del usuario
-  const [usuario, setUsuario] = useState(''); // Correo del usuario
-  const [detallesCuenta, setDetallesCuenta] = useState(false);
-  const [historialPedidos, setHistorialPedidos] = useState(false);
+  const [iniciarSesion, setIniciarSesion] = useState(true); // menu para iniciar sesion o para crear cuenta
+  const [apellido, setApellido] = useState(''); // apellido del usuario
+  const [usuario, setUsuario] = useState(''); // correo del usuario
+  const [detallesCuenta, setDetallesCuenta] = useState(false); // para mostrar los detalles de la cuenta
+  const [historialPedidos, setHistorialPedidos] = useState(false); // para mostrar el historial de pedidos realizados
 
   function clickLogin() {
     setVerLogin(!verLogin);
@@ -43,10 +43,10 @@ export function Login() {
         alt="Login"
         src="sesion.png"
       />
-
       {user && <span className="nombre-usuario">{nombre}</span>}
-
+      {/* al clicar en el icono de sesión se desplegará el menú de login pequeño */}
       {verLogin &&
+        // dependiendo si se ha iniciado sesión o no se motrará el menú  para iniciar sesión o para cerrarla
         (user.length < 1 ? (
           <div
             className="cerrar_verlogin"
@@ -82,7 +82,10 @@ export function Login() {
             )}
           </div>
         ))}
+      {/* el código posterior hace referencia a las acciones posibles dentro del menú de login anterior */}
 
+      {/* si se ha clicado en el menú login anterior para iniciar sesión 
+      se desplegará el menú que contiene el formulario para iniciar sesión */}
       {login && (
         <LoginDesplegable
           user={user}
@@ -99,6 +102,8 @@ export function Login() {
           setSesionIniciada={setSesionIniciada}
         />
       )}
+
+      {/* si se clica sobre detalles de la cuenta se mostrará la información de la cuenta */}
       {detallesCuenta && (
         <DetallesCuenta
           nombre={nombre}
@@ -109,6 +114,7 @@ export function Login() {
         />
       )}
 
+      {/* si se clica sobre el historial de pedidos se mostrarán los pedidos realizados */}
       {historialPedidos && (
         <HistorialPedidos
           usuario={usuario}

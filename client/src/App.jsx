@@ -1,12 +1,12 @@
-import { BurguerMenu } from './components/burguermenu/burguer-menu';
-import Searcher from './components/Searcher';
 import './App.css';
-import { Login } from './components/login/login';
-import { Carrito } from './components/carrito/carrito';
-import { CardMedicines } from './components/card-medicines/card-medicines';
-import CartProvider from './components/context/cart-context';
-import { Home } from './components/home/home';
-import Dialogo from './components/bocadillo-dialogo/bocadillo-dialogo';
+import CartProvider from './components/context/cart-context'; // contexto global de la aplicación
+import { BurguerMenu } from './components/burguermenu/burguer-menu'; // menu hamburguesa desplegable
+import Searcher from './components/Searcher'; // buscador
+import { Login } from './components/login/login'; // componente para gestionar la sesión del usuario
+import { Carrito } from './components/carrito/carrito'; // carrito de compra
+import { CardMedicines } from './components/card-medicines/card-medicines'; // las tarjetas que muestran a los productos
+import { Home } from './components/home/home'; // el cuerpo de la aplicación
+import Dialogo from './components/bocadillo-dialogo/bocadillo-dialogo'; // el chatbot
 
 function App() {
   return (

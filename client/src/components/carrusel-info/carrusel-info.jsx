@@ -1,8 +1,10 @@
 import './carrusel-info.css';
 
+// componente que renederiza el carrusel de la publicidad de la aplicación
 export function Carrusel() {
   return (
     <div className="publicidad">
+      {/* input que cambian la publicidad que se está viendo */}
       <input type="radio" name="Carrusel" id="Slider1-info" />
       <input type="radio" name="Carrusel" id="Slider2-info" />
       <input type="radio" name="Carrusel" id="Slider3-info" />

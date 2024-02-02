@@ -3,13 +3,14 @@ import './burguer-menu.css';
 import { CartContext } from '../context/cart-context';
 
 export function BurguerMenu() {
-  // to change burger classes
+  // estos 3 estados cambian la clase del menú hamburguesa
   const [burguerClass, setBurgerClass] = useState('burger-bar unclicked');
   const [menuClass, setMenuClass] = useState('menu hidden');
   const [isMenuClicked, setIsMenuClicked] = useState(false);
+
   const { setSearch, setVerLogin } = useContext(CartContext);
 
-  // toggle burger menu change
+  // gestiona los cambios que debe adoptar el menu hamburguesa
   const updateMenu = () => {
     if (!isMenuClicked) {
       setBurgerClass('burger-bar clicked');
@@ -21,6 +22,7 @@ export function BurguerMenu() {
     setIsMenuClicked(!isMenuClicked);
   };
 
+  // despliega el menú de login
   function clickCuenta() {
     setBurgerClass('burger-bar unclicked');
     setMenuClass('menu hidden');
@@ -28,6 +30,8 @@ export function BurguerMenu() {
     setVerLogin(true);
   }
 
+  // realiza la búsqueda en función de la categoría clicada (en este caso al ser una demostración
+  // busca productos generales, sin tener la categoría en cuenta)
   function clickCategoria() {
     setBurgerClass('burger-bar unclicked');
     setMenuClass('menu hidden');

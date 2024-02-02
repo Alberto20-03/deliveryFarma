@@ -21,6 +21,8 @@ export function Home() {
         />
       </div>
       <CarruselLabs />
+
+      {/* footer de la interfaz con la información de contacto y la newsletter */}
       <footer className="footer">
         <div className="newsletter">
           <footer>

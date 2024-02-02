@@ -1,5 +1,6 @@
 import './carrusel-labs.css';
 
+// componente que renderiza las imagenes de los laboratorios
 export function CarruselLabs() {
   return (
     <div className="slider">

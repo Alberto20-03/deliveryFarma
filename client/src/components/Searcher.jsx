@@ -4,6 +4,8 @@ import './components.css';
 
 export default function Buscador() {
   const { setSearch, search } = useContext(CartContext);
+
+  // gestiona si se ha clicado en la lupa
   const [clickLupa, setClickLupa] = useState(false);
 
   function blurInput() {
@@ -12,12 +14,15 @@ export default function Buscador() {
     }
   }
 
+  // cada vez que se haga algún cambio dentro del input se actualizarán los resultados
   function onInputChange(e) {
     e.preventDefault();
     setSearch(e.target.value);
   }
 
   return (
+    // si se ha clicado en la lupa o hay alguna búsqueda introducida se mostrará el input,
+    // si no se ha clicado y la búsqueda está vacía se mostrará la lupa
     <>
       {clickLupa || search.length > 0 ? (
         <input
