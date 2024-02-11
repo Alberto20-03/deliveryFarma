@@ -1,7 +1,6 @@
 describe('Delivery Farma', () => {
   beforeEach(() => {
     cy.visit('https://delivery-farma.onrender.com/')
-    scrollTo(0, 0)
   })
 
   it('Carga la página', () => {
@@ -63,7 +62,7 @@ describe('Delivery Farma', () => {
     cy.get('[class="nuevo"]').contains('Crear Cuenta').click()
     cy.get('[name="nombre"]').type("Alberto")
     cy.get('[name="apellidos"]').type("Narbona")
-    cy.get('[name="correo"]').type("alb@gmail.com")
+    cy.get('[name="correo"]').type("alb00@gmail.com")
     cy.get('[name="contraseña"]').type("Alberto123")
     cy.contains('Crear cuenta').click()
     cy.wait(500)
