@@ -42,7 +42,10 @@ export function BurguerMenu() {
   return (
     <div className="containerMenu">
       <nav>
-        <div className="burger-menu" onClick={updateMenu}>
+        <div
+          className="burger-menu"
+          test-id="burguer-menu-app"
+          onClick={updateMenu}>
           <div className={burguerClass} />
           <div className={burguerClass} />
           <div className={burguerClass} />
